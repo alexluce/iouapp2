@@ -1,0 +1,18 @@
+.row
+  .col-4.col-offset-4.well
+    %legend Sign Up
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+      = insertFlash('error')
+      %div
+        = f.label :email
+        = f.email_field :email, :autofocus => true, class: "form-control", :placeholder => "Email"
+      %div
+        %br
+        = f.label :password
+        = f.password_field :password, class: "form-control", :placeholder => "Password"
+      %div
+        = f.password_field :password_confirmation, class: "form-control", :placeholder => "Repeat Password"
+      %br
+      %button.btn.btn-default{form: "new_user", type: "submit"} Sign Up
+    %br
+    = render "devise/shared/links"

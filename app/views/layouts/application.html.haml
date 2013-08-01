@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %title Iouapp2
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-fixed-top
+      .container
+        %a.navbar-brand{href: '/'} IOUAPP
+        %ul.nav.navbar-nav
+          %li.dropdown
+            %a.dropdown-toggle{href: "/contracts", 'data-toggle' => "dropdown"}
+              Contracts
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{href: "/contracts/checkbook"} Overview
+              %li.divider
+              %li
+                %a{href: "/contracts/payback"} Pending Paybacks
+              %li
+                %a{href: "/contracts/new"} New Contract
+        %form{action: "/users/sign_up", method: "get"}
+          %button.btn.btn-default.navbar-btn.pull-right Sign up
+        %p.navbar-text.pull-right or
+        %form{action: "/users/sign_in", method: "get"}
+          %button.btn.btn-default.navbar-btn.pull-right Sign in
+        %p.navbar-text.pull-right Please
+
+    .container
+      = yield
