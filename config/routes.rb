@@ -9,6 +9,8 @@ Iouapp2::Application.routes.draw do
 
   get "/about" => "home#about"
 
+  get '/users/:id' => 'profiles#show'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,2 +1,15 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+.jumbotron
+  %h2
+    It's
+    = Time.now.strftime("%l:%M. ")
+    Do you know where
+    %em your
+    money is?
+
+  %p IOUAPP can save your arse from fakers, scammers, and con artists of all kinds. When you lend money, please don't be stupid and forget to make a contract on this site! You'd just be plain dumb to let your "friend" borrow money without having some solid proof. No more "Dude, I only borrowed $20, remember?"
+
+  -if user_signed_in?
+    =button_to 'New Contract', {action: "index"}, :class => "btn btn-default"
+  -else
+    =button_to 'Sign in', {controller: "devise/sessions", action: "new"}, :class => "btn btn-default pull-left"
+    =button_to 'Sign up', {controller: "devise/registrations", action: "new"}, :class => "btn btn-default pull-left"
